@@ -1,0 +1,33 @@
+{
+  "name": "midnight-moonshots-level-1",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Midnight Moonshots Program OS Level 1 - New Moon",
+  "main": "index.js",
+  "scripts": {
+    "compile": "compact compile contract/src/contract.compact contract/managed",
+    "test": "node --test tests/contract.test.js",
+    "deploy": "ts-node scripts/deploy.ts"
+  },
+  "keywords": [
+    "midnight",
+    "zk",
+    "compact"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.0.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@midnight-ntwrk/compact-runtime": "^0.15.0"
+  }
+}
