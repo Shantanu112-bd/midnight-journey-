@@ -1,7 +1,46 @@
 pragma language_version >= 0.14.0;
 
+// Level 1 Preserved State
 export ledger message: Opaque<"string">;
 
+// Level 2 ProofWork State
+export ledger lastAgreementHash: Opaque<"string">;
+export ledger agreementCount: Uint<32>;
+export ledger complaintCount: Uint<32>;
+export ledger totalVotes: Uint<32>;
+
+// Level 1 Circuit Preserved
 export circuit storeMessage(newMessage: Opaque<"string">): [] {
   message = disclose(newMessage);
+}
+
+// Level 2 Circuit 1: Create Confidential Workplace Agreement
+export circuit createAgreement(
+  publicTitle: Opaque<"string">,
+  privateAgreementDetailsHash: Opaque<"string">
+): [] {
+  lastAgreementHash = disclose(privateAgreementDetailsHash);
+  agreementCount = (agreementCount + 1) as Uint<32>;
+}
+
+// Level 2 Circuit 2: Verify Agreement Hash Match without disclosing witness payload
+export circuit verifyAgreement(
+  expectedHash: Opaque<"string">
+): Boolean {
+  return lastAgreementHash == disclose(expectedHash);
+}
+
+// Level 2 Circuit 3: File Whistleblower HR Complaint
+export circuit fileComplaint(
+  encryptedComplaintHash: Opaque<"string">
+): [] {
+  complaintCount = (complaintCount + 1) as Uint<32>;
+}
+
+// Level 2 Circuit 4: Confidential Voting
+export circuit castPrivateVote(
+  proposalId: Opaque<"string">,
+  voteChoice: Uint<32>
+): [] {
+  totalVotes = (totalVotes + 1) as Uint<32>;
 }

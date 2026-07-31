@@ -1,10 +1,13 @@
 {
-  "name": "midnight-moonshots-level-1",
-  "version": "1.0.0",
+  "name": "proofwork-midnight",
+  "version": "2.0.0",
   "type": "module",
-  "description": "Midnight Moonshots Program OS Level 1 - New Moon",
+  "description": "ProofWork - Confidential Workplace Governance Platform powered by Midnight ZK Smart Contracts",
   "main": "index.js",
   "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "compile": "compact compile contract/src/contract.compact contract/managed",
     "test": "node --test tests/*.test.js",
     "deploy": "tsx scripts/deploy.ts"
@@ -12,24 +15,35 @@
   "keywords": [
     "midnight",
     "zk",
-    "compact"
+    "compact",
+    "proofwork",
+    "workplace-governance",
+    "privacy"
   ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^22.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
     "jest": "^29.5.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
     "ts-jest": "^29.1.0",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.0",
-    "tsx": "^4.7.0"
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.3.1"
   },
   "engines": {
     "node": ">=22.0.0"
   },
   "dependencies": {
     "@midnight-ntwrk/compact-runtime": "^0.15.0",
+    "@midnight-ntwrk/dapp-connector-api": "^1.0.0",
     "@midnight-ntwrk/midnight-js-contracts": "4.1.1",
     "@midnight-ntwrk/midnight-js-http-client-proof-provider": "4.1.1",
     "@midnight-ntwrk/midnight-js-indexer-public-data-provider": "4.1.1",
@@ -39,9 +53,14 @@
     "@midnight-ntwrk/midnight-js-protocol": "4.1.1",
     "@midnight-ntwrk/testkit-js": "4.1.1",
     "@midnight-ntwrk/wallet-sdk": "1.0.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.395.0",
     "pino": "^9.0.0",
     "pino-pretty": "^13.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "rxjs": "^7.8.2",
+    "tailwind-merge": "^2.3.0",
     "ws": "^8.14.2"
   }
 }

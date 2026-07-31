@@ -21,6 +21,94 @@
         "types": [
         ]
       }
+    },
+    {
+      "name": "createAgreement",
+      "pure": false,
+      "proof": true,
+      "arguments": [
+        {
+          "name": "publicTitle",
+          "type": {
+            "type-name": "Opaque",
+            "tsType": "string"
+          }
+        },
+        {
+          "name": "privateAgreementDetailsHash",
+          "type": {
+            "type-name": "Opaque",
+            "tsType": "string"
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "verifyAgreement",
+      "pure": false,
+      "proof": true,
+      "arguments": [
+        {
+          "name": "expectedHash",
+          "type": {
+            "type-name": "Opaque",
+            "tsType": "string"
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Boolean"
+      }
+    },
+    {
+      "name": "fileComplaint",
+      "pure": false,
+      "proof": true,
+      "arguments": [
+        {
+          "name": "encryptedComplaintHash",
+          "type": {
+            "type-name": "Opaque",
+            "tsType": "string"
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
+    },
+    {
+      "name": "castPrivateVote",
+      "pure": false,
+      "proof": true,
+      "arguments": [
+        {
+          "name": "proposalId",
+          "type": {
+            "type-name": "Opaque",
+            "tsType": "string"
+          }
+        },
+        {
+          "name": "voteChoice",
+          "type": {
+            "type-name": "Uint",
+            "maxval": 4294967295
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
     }
   ],
   "witnesses": [

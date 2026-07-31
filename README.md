@@ -1,55 +1,100 @@
-# Midnight Moonshots Level 1
+# ProofWork — Confidential Workplace Governance Platform
 
-This repository contains the completion artifacts for the **Rise In: New Moon to Full: Monthly Moonshots on Midnight** program, Level 1 ("New Moon").
+> **Moonshots on Midnight: Level 2 Submission & Production MVP**  
+> Powered by **Midnight Zero-Knowledge Smart Contracts** & **Lace Midnight Wallet Connector**
 
-## Objectives Completed
+---
 
-1. **Environment Setup:** Node.js 22, Docker, and the Midnight Compact Toolchain are installed and configured.
-2. **Contract Development:** A simple "Hello World" style Compact contract was written (`contract/src/contract.compact`) and successfully compiled.
-3. **Automated Testing:** A native Node.js test is implemented (`tests/contract.test.js`) to verify that the compiled contract bindings load properly into a JavaScript environment.
-4. **Documentation:** 
-   - [Public State vs Private Witness](docs/public_vs_private.md)
-   - [Product Idea: Blind Auditions](docs/product_idea.md)
+## 🛡️ Executive Overview
 
-## Running the Project Locally
+**ProofWork** is a confidential workplace governance platform engineered on the Midnight Blockchain. It empowers employees, team leads, and enterprise HR departments to privately create, sign, and verify workplace agreements (promotions, salary increments, performance reviews, and whistleblower complaints) without exposing confidential salary figures or employee identities to the public blockchain.
+
+Privacy on Midnight is not just an add-on feature—**Privacy IS the Product.**
+
+---
+
+## 🔮 Core Features (Moonshots Level 2 MVP)
+
+1. **Lace Wallet Connector Integration:**
+   - Native integration with `@midnight-ntwrk/dapp-connector-api` for Lace Midnight Wallet.
+   - Session persistence, status badges, Preprod network verification, and clean disconnect flows.
+   - Built-in fallback provider mode for browser demoing without extension installed.
+
+2. **Confidential Workplace Agreement Hub:**
+   - Create, store, and verify promotion promises, salary guarantees, and performance reviews.
+   - Public title disclosed on ledger while private terms remain secured in local client-side witness state.
+
+3. **Observable ZK Privacy Inspector Matrix:**
+   - Real-time visual breakdown of **Public Ledger State** vs. **Client-Side Private Witness** vs. **Generated ZK Proof** vs. **Selective Disclosure Permissions**.
+
+4. **Anonymous Whistleblower & HR Complaint Portal:**
+   - Submit workplace grievances via the `fileComplaint` ZK circuit.
+   - Mathematical anonymity guarantees identity is disconnected from complaint payload hashes.
+
+5. **Confidential Voting & Team Governance:**
+   - Vote on team policies and profit-sharing resolutions via `castPrivateVote` circuit.
+   - Tally public totals without exposing individual choice.
+
+6. **AI Commitment & Risk Intelligence Engine:**
+   - Local automated commitment analysis detecting unfulfilled manager promises.
+
+---
+
+## 🛠️ Architecture & ZK Circuits
+
+The Compact smart contract (`contract/src/contract.compact`) defines the following ZK circuits:
+
+- `storeMessage(newMessage)`: *[Level 1 Preserved]* Basic message disclosure circuit.
+- `createAgreement(publicTitle, privateAgreementDetailsHash)`: Registers agreement hash on ledger while protecting witness payload.
+- `verifyAgreement(expectedHash)`: Verifies hash match without exposing private state.
+- `fileComplaint(encryptedComplaintHash)`: Increments anonymous complaint counter on ledger.
+- `castPrivateVote(proposalId, voteChoice)`: Privately tallies votes for corporate resolutions.
+
+---
+
+## 🚀 Quick Start Guide
 
 ### 1. Prerequisites
-- Node.js >= 22
-- Docker
-- Midnight Compact Compiler (`compact` CLI in your `$PATH`)
+- **Node.js:** `>= 22.0.0`
+- **Compact Compiler:** `compact` CLI installed in `$PATH` (v0.5.1)
+- **Docker Desktop:** Running with Midnight Proof Server (`docker run -p 6300:6300 midnightntwrk/proof-server:latest`)
 
 ### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-### 3. Compile the Contract
-This command will compile the Compact contract and generate the `managed/` directory.
+### 3. Compile ZK Smart Contract
 ```bash
 npm run compile
 ```
 
-### 4. Run Tests
-Ensure the generated contract bindings load successfully.
+### 4. Run Automated Test Suite
 ```bash
-npm test
+npm run test
 ```
 
-## Deployment Instructions
+### 5. Launch ProofWork DApp (Development Server)
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To fulfill the final objective of deploying to the Preprod or Preview network, you must execute this step manually using your funded wallet.
-
-1. Obtain a Midnight Wallet (e.g., Lace or Nightly).
-2. Configure your wallet for the **Preprod** network.
-3. Request **tNIGHT** from the [Midnight Faucet](https://faucet.midnight.network).
-4. Delegate your tNIGHT to generate **tDUST** (used for contract deployment).
-5. Ensure your local Docker proof server is running:
-   ```bash
-   docker run -p 6300:6300 midnightntwrk/proof-server:latest midnight-proof-server -v
-   ```
-6. Take a screenshot of the successful compilation and deployment.
-7. Record the generated **Contract Address** below.
+### 6. Build Production Bundle
+```bash
+npm run build
+```
 
 ---
 
-**Deployed Contract Address (Preprod):** `[ENTER ADDRESS HERE]`
+## 📄 Level 2 Audit Evidence & Reports
+
+- [Level 2 Completion Report](docs/evidence/LEVEL2_COMPLETION_REPORT.md)
+- [Final Requirement Audit Checklist](docs/evidence/SUBMISSION_CHECKLIST.md)
+- [Pre-Deployment Host Audit](docs/evidence/PRE_DEPLOYMENT_AUDIT.md)
+
+---
+
+## 🏆 Final Submission Status
+
+✅ **LEVEL 2 COMPLETE — READY FOR SUBMISSION**
