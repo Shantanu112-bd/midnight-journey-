@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <rect width="1200" height="500" rx="16" fill="#090615" stroke="#7a60f3" stroke-width="2"/>
+  <text x="50" y="60" fill="#ffffff" font-family="sans-serif" font-size="22" font-weight="bold">ZK Privacy Matrix Inspector</text>
+  <rect x="50" y="100" width="250" height="350" rx="14" fill="#171230" stroke="#3b82f6"/>
+  <text x="70" y="140" fill="#60a5fa" font-family="sans-serif" font-size="16" font-weight="bold">1. Public Ledger</text>
+  <text x="70" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="13">• 256-bit Hash</text>
+  <text x="70" y="210" fill="#cbd5e1" font-family="sans-serif" font-size="13">• agreementCount</text>
+  <rect x="330" y="100" width="250" height="350" rx="14" fill="#171230" stroke="#c084fc"/>
+  <text x="350" y="140" fill="#c084fc" font-family="sans-serif" font-size="16" font-weight="bold">2. Private Witness</text>
+  <text x="350" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="13">• Plaintext Salary ($165k)</text>
+  <text x="350" y="210" fill="#cbd5e1" font-family="sans-serif" font-size="13">• Employee Identity</text>
+  <rect x="610" y="100" width="250" height="350" rx="14" fill="#171230" stroke="#22c55e"/>
+  <text x="630" y="140" fill="#4ade80" font-family="sans-serif" font-size="16" font-weight="bold">3. ZK Proof</text>
+  <text x="630" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="13">• zk-SNARK Output</text>
+  <text x="630" y="210" fill="#cbd5e1" font-family="sans-serif" font-size="13">• Zero Witness Leakage</text>
+  <rect x="890" y="100" width="250" height="350" rx="14" fill="#171230" stroke="#f59e0b"/>
+  <text x="910" y="140" fill="#fbbf24" font-family="sans-serif" font-size="16" font-weight="bold">4. Selective Disclosure</text>
+  <text x="910" y="180" fill="#cbd5e1" font-family="sans-serif" font-size="13">• HR Director Key</text>
+</svg>

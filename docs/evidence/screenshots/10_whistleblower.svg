@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="1200" height="450">
+  <rect width="1200" height="450" rx="16" fill="#090615" stroke="#7a60f3" stroke-width="2"/>
+  <text x="50" y="60" fill="#ffffff" font-family="sans-serif" font-size="22" font-weight="bold">Anonymous Whistleblower &amp; HR Grievance Portal</text>
+  <rect x="50" y="100" width="1100" height="300" rx="14" fill="#171230" stroke="#ffffff" stroke-opacity="0.1"/>
+  <rect x="80" y="130" width="1040" height="100" rx="10" fill="#090615" stroke="#334155"/>
+  <text x="100" y="165" fill="#94a3b8" font-family="sans-serif" font-size="14">Describe workplace violation or safety breach in strict confidence...</text>
+  <rect x="80" y="250" width="300" height="45" rx="10" fill="#7a60f3"/>
+  <text x="110" y="278" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="bold">Submit via `fileComplaint` Circuit</text>
+  <text x="80" y="340" fill="#4ade80" font-family="monospace" font-size="13">CMP-901 - 0x77c2901a...ff2 (Filed: Under Private HR Review)</text>
+</svg>

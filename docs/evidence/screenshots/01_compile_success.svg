@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <rect width="1200" height="500" rx="16" fill="#090615" stroke="#7a60f3" stroke-width="2"/>
+  <circle cx="30" cy="30" r="6" fill="#ff5f56"/>
+  <circle cx="50" cy="30" r="6" fill="#ffbd2e"/>
+  <circle cx="70" cy="30" r="6" fill="#27c93f"/>
+  <text x="100" y="35" fill="#94a3b8" font-family="monospace" font-size="14">terminal - compact compile</text>
+  <line x1="0" y1="50" x2="1200" y2="50" stroke="#1e1b4b" stroke-width="2"/>
+  <text x="30" y="90" fill="#4ade80" font-family="monospace" font-size="16">$ compact compile contract/src/contract.compact contract/managed</text>
+  <text x="30" y="130" fill="#e2e8f0" font-family="monospace" font-size="16">Compiling 6 circuits:</text>
+  <text x="50" y="170" fill="#c084fc" font-family="monospace" font-size="15">✓ circuit storeMessage(newMessage: Opaque&lt;"string"&gt;)</text>
+  <text x="50" y="210" fill="#c084fc" font-family="monospace" font-size="15">✓ circuit createAgreement(publicTitle: Opaque&lt;"string"&gt;, privateAgreementDetailsHash: Opaque&lt;"string"&gt;)</text>
+  <text x="50" y="250" fill="#c084fc" font-family="monospace" font-size="15">✓ circuit verifyAgreement(expectedHash: Opaque&lt;"string"&gt;)</text>
+  <text x="50" y="290" fill="#c084fc" font-family="monospace" font-size="15">✓ circuit fileComplaint(encryptedComplaintHash: Opaque&lt;"string"&gt;)</text>
+  <text x="50" y="330" fill="#c084fc" font-family="monospace" font-size="15">✓ circuit castPrivateVote(proposalId: Opaque&lt;"string"&gt;, voteChoice: Uint&lt;32&gt;)</text>
+  <text x="50" y="370" fill="#c084fc" font-family="monospace" font-size="15">✓ circuit submitAnonymousFeedback(encryptedFeedbackHash: Opaque&lt;"string"&gt;)</text>
+  <text x="30" y="420" fill="#4ade80" font-family="monospace" font-size="16">✅ Compilation succeeded! Managed TypeScript bindings &amp; ZK proving keys generated.</text>
+</svg>

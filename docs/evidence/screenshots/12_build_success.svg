@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="1200" height="450">
+  <rect width="1200" height="450" rx="16" fill="#090615" stroke="#7a60f3" stroke-width="2"/>
+  <circle cx="30" cy="30" r="6" fill="#ff5f56"/><circle cx="50" cy="30" r="6" fill="#ffbd2e"/><circle cx="70" cy="30" r="6" fill="#27c93f"/>
+  <text x="100" y="35" fill="#94a3b8" font-family="monospace" font-size="14">terminal - npm run build</text>
+  <line x1="0" y1="50" x2="1200" y2="50" stroke="#1e1b4b" stroke-width="2"/>
+  <text x="30" y="90" fill="#4ade80" font-family="monospace" font-size="15">$ npm run build</text>
+  <text x="30" y="130" fill="#e2e8f0" font-family="monospace" font-size="15">&gt; tsc &amp;&amp; vite build</text>
+  <text x="30" y="170" fill="#cbd5e1" font-family="monospace" font-size="15">vite v5.4.21 building for production...</text>
+  <text x="30" y="210" fill="#cbd5e1" font-family="monospace" font-size="15">✓ 1505 modules transformed.</text>
+  <text x="30" y="250" fill="#c084fc" font-family="monospace" font-size="14">dist/index.html                   1.07 kB</text>
+  <text x="30" y="280" fill="#c084fc" font-family="monospace" font-size="14">dist/assets/index-CNk6XAd5.css   21.73 kB</text>
+  <text x="30" y="310" fill="#c084fc" font-family="monospace" font-size="14">dist/assets/index-DS5mPnt7.js   179.75 kB</text>
+  <text x="30" y="360" fill="#4ade80" font-family="monospace" font-size="16">✓ built in 3.94s - Production Bundle Complete!</text>
+</svg>

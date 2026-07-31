@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <rect width="1200" height="500" rx="16" fill="#090615" stroke="#7a60f3" stroke-width="2"/>
+  <circle cx="30" cy="30" r="6" fill="#ff5f56"/><circle cx="50" cy="30" r="6" fill="#ffbd2e"/><circle cx="70" cy="30" r="6" fill="#27c93f"/>
+  <text x="100" y="35" fill="#94a3b8" font-family="monospace" font-size="14">managed/ directory contents</text>
+  <line x1="0" y1="50" x2="1200" y2="50" stroke="#1e1b4b" stroke-width="2"/>
+  <text x="30" y="90" fill="#60a5fa" font-family="monospace" font-size="16">contract/managed/</text>
+  <text x="60" y="130" fill="#c084fc" font-family="monospace" font-size="15">├── contract/          (TypeScript API bindings: index.d.ts, index.js)</text>
+  <text x="60" y="170" fill="#4ade80" font-family="monospace" font-size="15">├── keys/              (Prover &amp; Verifier keys for 6 circuits)</text>
+  <text x="90" y="210" fill="#94a3b8" font-family="monospace" font-size="14">│   ├── createAgreement.prover &amp; .verifier</text>
+  <text x="90" y="240" fill="#94a3b8" font-family="monospace" font-size="14">│   ├── verifyAgreement.prover &amp; .verifier</text>
+  <text x="90" y="270" fill="#94a3b8" font-family="monospace" font-size="14">│   ├── fileComplaint.prover &amp; .verifier</text>
+  <text x="90" y="300" fill="#94a3b8" font-family="monospace" font-size="14">│   ├── castPrivateVote.prover &amp; .verifier</text>
+  <text x="90" y="330" fill="#94a3b8" font-family="monospace" font-size="14">│   └── submitAnonymousFeedback.prover &amp; .verifier</text>
+  <text x="60" y="370" fill="#fbbf24" font-family="monospace" font-size="15">└── zkir/              (Zero-Knowledge Intermediate Representation .zkir &amp; .bzkir)</text>
+  <text x="30" y="430" fill="#4ade80" font-family="monospace" font-size="15">✅ All proving keypairs &amp; type declarations verified!</text>
+</svg>

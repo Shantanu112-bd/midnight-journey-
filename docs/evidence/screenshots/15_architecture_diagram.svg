@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="1200" height="450">
+  <rect width="1200" height="450" rx="16" fill="#090615" stroke="#7a60f3" stroke-width="2"/>
+  <text x="50" y="50" fill="#ffffff" font-family="sans-serif" font-size="22" font-weight="bold">ProofWork System Architecture</text>
+  <rect x="50" y="90" width="320" height="300" rx="14" fill="#171230" stroke="#7a60f3"/>
+  <text x="70" y="130" fill="#c084fc" font-family="sans-serif" font-size="16" font-weight="bold">Frontend &amp; DApp Connector</text>
+  <text x="70" y="170" fill="#cbd5e1" font-family="sans-serif" font-size="13">• React + TypeScript + Vite</text>
+  <text x="70" y="200" fill="#cbd5e1" font-family="sans-serif" font-size="13">• Lace Midnight Wallet Connector</text>
+  <text x="70" y="230" fill="#cbd5e1" font-family="sans-serif" font-size="13">• ZK Privacy Matrix Inspector</text>
+  
+  <rect x="440" y="90" width="320" height="300" rx="14" fill="#171230" stroke="#3b82f6"/>
+  <text x="460" y="130" fill="#60a5fa" font-family="sans-serif" font-size="16" font-weight="bold">Proof Server &amp; Local ZK</text>
+  <text x="460" y="170" fill="#cbd5e1" font-family="sans-serif" font-size="13">• Docker Server (127.0.0.1:6300)</text>
+  <text x="460" y="200" fill="#cbd5e1" font-family="sans-serif" font-size="13">• Local LevelDB Private Witness</text>
+  <text x="460" y="230" fill="#cbd5e1" font-family="sans-serif" font-size="13">• Client-Side zk-SNARK Prover</text>
+
+  <rect x="830" y="90" width="320" height="300" rx="14" fill="#171230" stroke="#22c55e"/>
+  <text x="850" y="130" fill="#4ade80" font-family="sans-serif" font-size="16" font-weight="bold">Midnight Blockchain</text>
+  <text x="850" y="170" fill="#cbd5e1" font-family="sans-serif" font-size="13">• Compact Smart Contract</text>
+  <text x="850" y="200" fill="#cbd5e1" font-family="sans-serif" font-size="13">• Public Ledger Commitments</text>
+  <text x="850" y="230" fill="#cbd5e1" font-family="sans-serif" font-size="13">• Midnight Indexer &amp; RPC Nodes</text>
+</svg>

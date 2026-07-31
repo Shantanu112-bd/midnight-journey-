@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <rect width="1200" height="500" rx="16" fill="#090615" stroke="#7a60f3" stroke-width="2"/>
+  <rect x="350" y="40" width="500" height="420" rx="20" fill="#120e26" stroke="#7a60f3" stroke-width="2"/>
+  <text x="380" y="80" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="bold">New Confidential Agreement</text>
+  <rect x="380" y="110" width="440" height="40" rx="8" fill="#090615" stroke="#334155"/>
+  <text x="395" y="135" fill="#cbd5e1" font-family="sans-serif" font-size="13">Title: Principal Architect Promotion Commitment</text>
+  <rect x="380" y="170" width="440" height="40" rx="8" fill="#090615" stroke="#334155"/>
+  <text x="395" y="195" fill="#cbd5e1" font-family="sans-serif" font-size="13">Category: Promotion</text>
+  <rect x="380" y="230" width="440" height="80" rx="8" fill="#090615" stroke="#334155"/>
+  <text x="395" y="255" fill="#94a3b8" font-family="sans-serif" font-size="13">Terms (Private Witness): Base salary $185,000 + stock</text>
+  <rect x="380" y="340" width="440" height="45" rx="10" fill="#7a60f3"/>
+  <text x="500" y="368" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="bold">Submit via `createAgreement` Circuit</text>
+</svg>

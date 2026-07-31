@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="1200" height="450">
+  <rect width="1200" height="450" rx="16" fill="#090615" stroke="#7a60f3" stroke-width="2"/>
+  <text x="50" y="60" fill="#ffffff" font-family="sans-serif" font-size="22" font-weight="bold">Confidential Governance &amp; Private Voting</text>
+  <rect x="50" y="100" width="1100" height="300" rx="14" fill="#171230" stroke="#ffffff" stroke-opacity="0.1"/>
+  <text x="80" y="145" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="bold">Confidential Remote Work Policy Extension 2026</text>
+  <rect x="80" y="180" width="160" height="45" rx="10" fill="#22c55e"/>
+  <text x="110" y="208" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="bold">Vote YES (42)</text>
+  <rect x="260" y="180" width="160" height="45" rx="10" fill="#f43f5e"/>
+  <text x="295" y="208" fill="#ffffff" font-family="sans-serif" font-size="14" font-weight="bold">Vote NO (3)</text>
+  <text x="80" y="270" fill="#c084fc" font-family="monospace" font-size="14">✓ ZK Vote Recorded via `castPrivateVote` Circuit (Choice Hidden from Observer)</text>
+</svg>

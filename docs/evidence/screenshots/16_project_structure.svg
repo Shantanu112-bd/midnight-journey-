@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="1200" height="450">
+  <rect width="1200" height="450" rx="16" fill="#090615" stroke="#7a60f3" stroke-width="2"/>
+  <circle cx="30" cy="30" r="6" fill="#ff5f56"/><circle cx="50" cy="30" r="6" fill="#ffbd2e"/><circle cx="70" cy="30" r="6" fill="#27c93f"/>
+  <text x="100" y="35" fill="#94a3b8" font-family="monospace" font-size="14">project folder structure</text>
+  <line x1="0" y1="50" x2="1200" y2="50" stroke="#1e1b4b" stroke-width="2"/>
+  <text x="50" y="90" fill="#60a5fa" font-family="monospace" font-size="15">proofwork-midnight/</text>
+  <text x="80" y="120" fill="#cbd5e1" font-family="monospace" font-size="14">├── .github/workflows/ci.yml   (Production CI/CD Automation Pipeline)</text>
+  <text x="80" y="150" fill="#cbd5e1" font-family="monospace" font-size="14">├── contract/src/              (contract.compact source: 6 circuits)</text>
+  <text x="80" y="180" fill="#cbd5e1" font-family="monospace" font-size="14">├── contract/managed/          (Generated TypeScript bindings, keys, zkir)</text>
+  <text x="80" y="210" fill="#cbd5e1" font-family="monospace" font-size="14">├── docs/                      (Architecture, security, testing &amp; privacy reports)</text>
+  <text x="80" y="240" fill="#cbd5e1" font-family="monospace" font-size="14">├── docs/evidence/screenshots/ (17 Visual evidence SVG diagrams)</text>
+  <text x="80" y="270" fill="#cbd5e1" font-family="monospace" font-size="14">├── scripts/                   (deploy.ts, config.ts, providers.ts, wallet.ts)</text>
+  <text x="80" y="300" fill="#cbd5e1" font-family="monospace" font-size="14">├── src/                       (App.tsx, main.tsx, index.css, Lace types)</text>
+  <text x="80" y="330" fill="#cbd5e1" font-family="monospace" font-size="14">└── tests/                     (contract.test.js, proofwork_contract.test.js)</text>
+</svg>
