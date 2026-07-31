@@ -35,16 +35,22 @@ const logger = pino({
 });
 
 async function main() {
-  const network = 'preprod';
-  logger.info(`Starting Midnight deployment to ${network}...`);
+  const config = getConfig();
+  logger.info(`Starting Midnight deployment to active network: [${config.networkId.toUpperCase()}]...`);
   
-  const mnemonic = process.env['MIDNIGHT_PREPROD_MNEMONIC'];
+  const mnemonic = process.env['MIDNIGHT_MNEMONIC'] || 
+                   process.env['MIDNIGHT_PREVIEW_MNEMONIC'] || 
+                   process.env['MIDNIGHT_PREPROD_MNEMONIC'];
+
   if (!mnemonic) {
-    logger.error('Missing MIDNIGHT_PREPROD_MNEMONIC environment variable.');
+    logger.error(`[Autonomous Deployment Policy Alert]`);
+    logger.error(`No deployment mnemonic found in environment variables.`);
+    logger.error(`To deploy autonomously, please export your wallet seed phrase:`);
+    logger.error(`export MIDNIGHT_MNEMONIC="your 12 or 24 word recovery phrase"`);
+    logger.error(`npm run deploy`);
     process.exit(1);
   }
 
-  const config = getConfig(); // Defaults to PREPROD_CONFIG if process.env.MIDNIGHT_NETWORK is 'preprod'
   setNetworkId(config.networkId);
 
   const envConfig: EnvironmentConfiguration = {
@@ -58,7 +64,7 @@ async function main() {
     proofServer: config.proofServer,
   };
 
-  logger.info('Connecting to wallet...');
+  logger.info(`Connecting deployment wallet on ${config.networkId}...`);
   const wallet = await MidnightWalletProvider.build(logger, envConfig, {
     kind: 'mnemonic',
     value: mnemonic
@@ -66,25 +72,29 @@ async function main() {
   
   await wallet.start();
 
-  logger.info('Initializing providers...');
+  logger.info('Initializing Midnight providers...');
   const providers = buildProviders(wallet, zkConfigPath, config);
 
-  logger.info('Deploying contract. Please ensure you have sufficient tDUST funds...');
+  logger.info(`Deploying contract to ${config.networkId}. Verifying sufficient tDUST balance...`);
   try {
     const deployed = await deployContract(providers, {
       compiledContract: MidnightMoonshotsContract,
-      privateStateId: 'MidnightMoonshotsPrivateState',
+      privateStateId: 'ProofWorkPrivateState',
       initialPrivateState: {},
     });
 
     const address = deployed.deployTxData.public.contractAddress;
-    logger.info(`✅ Contract successfully deployed!`);
-    logger.info(`✅ Contract Address: ${address}`);
+    logger.info(`✅ Contract successfully deployed on ${config.networkId}!`);
+    logger.info(`✅ Verified Contract Address: ${address}`);
     
-    console.log(`\nDEPLOYMENT_ADDRESS=${address}\n`);
+    console.log(`\nDEPLOYMENT_NETWORK=${config.networkId}`);
+    console.log(`DEPLOYMENT_ADDRESS=${address}\n`);
 
-  } catch (err) {
-    logger.error(`Deployment failed: ${err}`);
+  } catch (err: any) {
+    logger.error(`Deployment failed: ${err.message || err}`);
+    if (config.faucet) {
+      logger.info(`If deployment failed due to insufficient funds, request tDUST from: ${config.faucet}`);
+    }
   } finally {
     await wallet.stop();
   }
