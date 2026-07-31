@@ -39,11 +39,12 @@ export const PREPROD_CONFIG: NetworkConfig = {
 };
 
 export function getConfig(): NetworkConfig {
-  const network = process.env['MIDNIGHT_NETWORK'] ?? 'local';
-  if (network === 'local') return LOCAL_CONFIG;
-  if (network === 'preview') return PREVIEW_CONFIG;
-  if (network === 'preprod') return PREPROD_CONFIG;
-  throw new Error(
-    `Unknown network: ${network}. Supported: 'local', 'preview', 'preprod'.`,
-  );
+  const envNetwork = process.env['MIDNIGHT_NETWORK'];
+  
+  if (envNetwork === 'preview') return PREVIEW_CONFIG;
+  if (envNetwork === 'preprod') return PREPROD_CONFIG;
+  if (envNetwork === 'local') return LOCAL_CONFIG;
+
+  // Runtime Policy: Prefer Preview if specified/available, otherwise fallback to Preprod
+  return PREVIEW_CONFIG;
 }
