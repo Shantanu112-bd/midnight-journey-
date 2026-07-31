@@ -109,6 +109,25 @@
         "types": [
         ]
       }
+    },
+    {
+      "name": "submitAnonymousFeedback",
+      "pure": false,
+      "proof": true,
+      "arguments": [
+        {
+          "name": "encryptedFeedbackHash",
+          "type": {
+            "type-name": "Opaque",
+            "tsType": "string"
+          }
+        }
+      ],
+      "result-type": {
+        "type-name": "Tuple",
+        "types": [
+        ]
+      }
     }
   ],
   "witnesses": [

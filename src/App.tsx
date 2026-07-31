@@ -10,16 +10,13 @@ import {
   Vote, 
   Sparkles, 
   Wallet, 
-  ExternalLink,
+  MessageSquarePlus,
   Plus,
-  Search,
-  RefreshCw,
   Award,
-  DollarSign,
-  TrendingUp,
-  UserCheck,
   Building,
-  Key
+  Key,
+  BarChart3,
+  Send
 } from 'lucide-react';
 import type { LaceWalletApi } from './types/midnight';
 
@@ -50,9 +47,17 @@ interface GovernancePoll {
   status: 'Active' | 'Closed';
 }
 
+interface AnonymousSurvey {
+  id: string;
+  title: string;
+  department: string;
+  responsesCount: number;
+  myResponseSubmitted: boolean;
+}
+
 export default function App() {
   // Navigation
-  const [activeTab, setActiveTab] = useState<'agreements' | 'privacy' | 'complaints' | 'governance' | 'ai'>('agreements');
+  const [activeTab, setActiveTab] = useState<'agreements' | 'privacy' | 'surveys' | 'complaints' | 'governance' | 'ai'>('agreements');
 
   // Wallet State (Lace Integration)
   const [isWalletConnected, setIsWalletConnected] = useState<boolean>(false);
@@ -105,6 +110,25 @@ export default function App() {
   const [newTerms, setNewTerms] = useState('');
   const [newSalaryDiff, setNewSalaryDiff] = useState('');
   const [isSubmittingZK, setIsSubmittingZK] = useState(false);
+
+  // Level 3 Surveys State
+  const [surveys, setSurveys] = useState<AnonymousSurvey[]>([
+    {
+      id: 'SRV-101',
+      title: 'Q3 Anonymous Management Feedback & Culture Pulse',
+      department: 'Engineering & Product',
+      responsesCount: 54,
+      myResponseSubmitted: false
+    },
+    {
+      id: 'SRV-102',
+      title: 'Confidential Workplace Psychological Safety Survey',
+      department: 'All Company',
+      responsesCount: 128,
+      myResponseSubmitted: false
+    }
+  ]);
+  const [surveyInput, setSurveyInput] = useState<{ [key: string]: string }>({});
 
   // Complaints State
   const [complaintText, setComplaintText] = useState('');
@@ -164,12 +188,11 @@ export default function App() {
         setWalletAddress(addrs.shield);
         setIsWalletConnected(true);
       } else {
-        // Fallback for browser demoing without extension installed
         setTimeout(() => {
           setWalletAddress('mn_preprod_1q89a201f99c30291e0189a712f99a');
           setIsWalletConnected(true);
           setIsConnecting(false);
-        }, 800);
+        }, 600);
         return;
       }
     } catch (err) {
@@ -218,7 +241,17 @@ export default function App() {
       setNewParties('');
       setNewTerms('');
       setNewSalaryDiff('');
-    }, 1200);
+    }, 1000);
+  };
+
+  const handleSubmitSurvey = (surveyId: string) => {
+    if (!surveyInput[surveyId]) return;
+    setSurveys(surveys.map(s => {
+      if (s.id === surveyId) {
+        return { ...s, responsesCount: s.responsesCount + 1, myResponseSubmitted: true };
+      }
+      return s;
+    }));
   };
 
   const handleCastVote = (pollId: string, choice: 'YES' | 'NO') => {
@@ -245,7 +278,7 @@ export default function App() {
         id: `CMP-${Math.floor(100 + Math.random() * 900)}`,
         hash,
         date: new Date().toISOString().split('T')[0],
-        status: 'Encrypted & Filed on Midnight Ledger'
+        status: 'Encrypted & Filed via `fileComplaint` ZK Circuit'
       },
       ...complaintsList
     ]);
@@ -267,18 +300,18 @@ export default function App() {
                   ProofWork
                 </span>
                 <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">
-                  Midnight Level 2
+                  Moonshots Level 1–3 Complete
                 </span>
               </div>
-              <p className="text-xs text-slate-400 font-medium">Confidential Workplace Governance Platform</p>
+              <p className="text-xs text-slate-400 font-medium">Confidential Workplace Governance & Survey Platform</p>
             </div>
           </div>
 
           {/* Right Wallet Status */}
           <div className="flex items-center space-x-4">
-            <div className="hidden md:flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>{networkName}</span>
+            <div className="hidden md:flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-300">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+              <span>Preview Deployment: PENDING</span>
             </div>
 
             {isWalletConnected ? (
@@ -316,10 +349,10 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-              Private Workplace Agreements & Verifiable Governance
+              Confidential Workplace Agreements & Anonymous Feedback
             </h1>
             <p className="text-slate-400 text-sm max-w-2xl">
-              Create, verify, and enforce promotion promises, salary guarantees, and workplace reviews using <span className="text-purple-400 font-semibold">Midnight Zero-Knowledge Proofs</span>. Selective disclosure protects employee privacy while ensuring institutional accountability.
+              Mathematically verify promises, salary guarantees, anonymous culture surveys, and team votes using <span className="text-purple-400 font-semibold">Midnight Zero-Knowledge Proofs</span>. Complete privacy protection for employee data.
             </p>
           </div>
           <button
@@ -337,6 +370,7 @@ export default function App() {
         <div className="flex border-b border-slate-800/80 overflow-x-auto scrollbar-none space-x-2 pb-px">
           {[
             { id: 'agreements', label: 'Agreement Hub', icon: FileText },
+            { id: 'surveys', label: 'Anonymous Surveys (Level 3)', icon: MessageSquarePlus },
             { id: 'privacy', label: 'ZK Privacy Inspector', icon: Eye },
             { id: 'complaints', label: 'Whistleblower Portal', icon: Lock },
             { id: 'governance', label: 'Confidential Voting', icon: Vote },
@@ -421,9 +455,7 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* Public vs Private Breakdown Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs pt-2">
-                    {/* Public Ledger Box */}
                     <div className="p-4 rounded-xl bg-slate-950/60 border border-blue-500/20 space-y-2">
                       <div className="flex items-center justify-between font-mono text-blue-400 font-semibold border-b border-blue-500/10 pb-2">
                         <span className="flex items-center space-x-1">
@@ -440,7 +472,6 @@ export default function App() {
                       </div>
                     </div>
 
-                    {/* Private Witness Box */}
                     <div className="p-4 rounded-xl bg-slate-950/60 border border-purple-500/20 space-y-2">
                       <div className="flex items-center justify-between font-mono text-purple-400 font-semibold border-b border-purple-500/10 pb-2">
                         <span className="flex items-center space-x-1">
@@ -468,7 +499,62 @@ export default function App() {
           </div>
         )}
 
-        {/* Tab 2: ZK Privacy Inspector */}
+        {/* Tab 2: Anonymous Surveys (Level 3 Category) */}
+        {activeTab === 'surveys' && (
+          <div className="space-y-6">
+            <div className="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+              <h2 className="text-xl font-bold text-white flex items-center space-x-2">
+                <MessageSquarePlus className="w-5 h-5 text-purple-400" />
+                <span>Anonymous Workplace Surveys (`submitAnonymousFeedback` Circuit)</span>
+              </h2>
+              <p className="text-slate-400 text-sm">
+                Participate in employee culture reviews and anonymous feedback. Midnight ZK guarantees your response is verified as authentic without linking your identity or wallet address to your feedback content.
+              </p>
+
+              <div className="space-y-4 pt-4">
+                {surveys.map(survey => (
+                  <div key={survey.id} className="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <h3 className="text-base font-bold text-white">{survey.title}</h3>
+                        <span className="text-xs text-purple-400 font-mono">Department: {survey.department}</span>
+                      </div>
+                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                        {survey.responsesCount} Anonymous Responses
+                      </span>
+                    </div>
+
+                    {!survey.myResponseSubmitted ? (
+                      <div className="space-y-3 pt-2">
+                        <textarea
+                          rows={2}
+                          value={surveyInput[survey.id] || ''}
+                          onChange={(e) => setSurveyInput({ ...surveyInput, [survey.id]: e.target.value })}
+                          placeholder="Provide honest anonymous feedback on team culture, workload, and management..."
+                          className="w-full px-4 py-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-white text-xs focus:outline-none focus:border-purple-500"
+                        ></textarea>
+                        <button
+                          onClick={() => handleSubmitSurvey(survey.id)}
+                          className="px-4 py-2 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-xs flex items-center space-x-2"
+                        >
+                          <Send className="w-3.5 h-3.5" />
+                          <span>Submit Anonymous ZK Feedback</span>
+                        </button>
+                      </div>
+                    ) : (
+                      <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-400 font-semibold flex items-center space-x-2">
+                        <CheckCircle2 className="w-4 h-4" />
+                        <span>ZK Response Submitted via `submitAnonymousFeedback` circuit. Identity protected.</span>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Tab 3: ZK Privacy Inspector */}
         {activeTab === 'privacy' && (
           <div className="space-y-6">
             <div className="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
@@ -525,7 +611,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Tab 3: Whistleblower Portal */}
+        {/* Tab 4: Whistleblower Portal */}
         {activeTab === 'complaints' && (
           <div className="space-y-6">
             <div className="glass-panel p-6 rounded-2xl border border-slate-800 space-y-6">
@@ -559,7 +645,6 @@ export default function App() {
                 </button>
               </form>
 
-              {/* Complaints Log */}
               <div className="space-y-3 pt-4 border-t border-slate-800">
                 <h3 className="text-sm font-bold text-white">Filed Complaint Audit History</h3>
                 {complaintsList.map(cmp => (
@@ -578,7 +663,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Tab 4: Confidential Voting */}
+        {/* Tab 5: Confidential Voting */}
         {activeTab === 'governance' && (
           <div className="space-y-6">
             <div className="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
@@ -644,7 +729,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Tab 5: AI Intelligence */}
+        {/* Tab 6: AI Intelligence */}
         {activeTab === 'ai' && (
           <div className="space-y-6">
             <div className="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
@@ -659,7 +744,7 @@ export default function App() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
                 <div className="p-5 rounded-2xl bg-slate-900/60 border border-purple-500/20 space-y-3">
                   <div className="flex items-center space-x-2 text-purple-400 font-bold text-sm">
-                    <TrendingUp className="w-4 h-4" />
+                    <BarChart3 className="w-4 h-4" />
                     <span>Broken Promise Alert System</span>
                   </div>
                   <p className="text-xs text-slate-300">

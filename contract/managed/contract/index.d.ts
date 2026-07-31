@@ -16,6 +16,8 @@ export type ImpureCircuits<PS> = {
   castPrivateVote(context: __compactRuntime.CircuitContext<PS>,
                   proposalId_0: string,
                   voteChoice_0: bigint): __compactRuntime.CircuitResults<PS, []>;
+  submitAnonymousFeedback(context: __compactRuntime.CircuitContext<PS>,
+                          encryptedFeedbackHash_0: string): __compactRuntime.CircuitResults<PS, []>;
 }
 
 export type ProvableCircuits<PS> = {
@@ -31,6 +33,8 @@ export type ProvableCircuits<PS> = {
   castPrivateVote(context: __compactRuntime.CircuitContext<PS>,
                   proposalId_0: string,
                   voteChoice_0: bigint): __compactRuntime.CircuitResults<PS, []>;
+  submitAnonymousFeedback(context: __compactRuntime.CircuitContext<PS>,
+                          encryptedFeedbackHash_0: string): __compactRuntime.CircuitResults<PS, []>;
 }
 
 export type PureCircuits = {
@@ -49,6 +53,8 @@ export type Circuits<PS> = {
   castPrivateVote(context: __compactRuntime.CircuitContext<PS>,
                   proposalId_0: string,
                   voteChoice_0: bigint): __compactRuntime.CircuitResults<PS, []>;
+  submitAnonymousFeedback(context: __compactRuntime.CircuitContext<PS>,
+                          encryptedFeedbackHash_0: string): __compactRuntime.CircuitResults<PS, []>;
 }
 
 export type Ledger = {
@@ -57,6 +63,7 @@ export type Ledger = {
   readonly agreementCount: bigint;
   readonly complaintCount: bigint;
   readonly totalVotes: bigint;
+  readonly feedbackCount: bigint;
 }
 
 export type ContractReferenceLocations = any;
