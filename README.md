@@ -7,7 +7,7 @@
 [![Compact Compiler](https://img.shields.io/badge/Compact-v0.5.1-673ce9?style=for-the-badge)](https://midnight.network)
 [![Lace Wallet](https://img.shields.io/badge/Wallet-Lace%20DApp%20Connector-562ad1?style=for-the-badge)](https://www.lace.io/)
 [![Live App](https://img.shields.io/badge/Vercel-Live%20Application-000000?style=for-the-badge&logo=vercel)](https://midnight-journey-nine.vercel.app/)
-[![Demo Video](https://img.shields.io/badge/Loom-Demo%20Video-625df5?style=for-the-badge&logo=loom)](https://www.loom.com/share/5c1f182a925f4f92aaf9c38f37140e9e)
+[![Demo Video](https://img.shields.io/badge/Loom-Demo%20Video-625df5?style=for-the-badge&logo=loom)](https://www.loom.com/share/aa6992f05ae8413e98bb83cd65c4d365)
 [![Moonshots Level](https://img.shields.io/badge/Moonshots-Level%201%E2%80%933%20Complete-3b82f6?style=for-the-badge)](docs/evidence/LEVEL3_SUBMISSION_CHECKLIST.md)
 
 ---
@@ -17,7 +17,7 @@
 | Resource | Link |
 | :--- | :--- |
 | **🌐 Live Application** | [https://midnight-journey-nine.vercel.app/](https://midnight-journey-nine.vercel.app/) |
-| **🎥 Demo Video** | [https://www.loom.com/share/5c1f182a925f4f92aaf9c38f37140e9e](https://www.loom.com/share/5c1f182a925f4f92aaf9c38f37140e9e) |
+| **🎥 Demo Video** | [https://www.loom.com/share/aa6992f05ae8413e98bb83cd65c4d365](https://www.loom.com/share/aa6992f05ae8413e98bb83cd65c4d365) |
 | **📦 GitHub Repository** | [https://github.com/Shantanu112-bd/midnight-journey-](https://github.com/Shantanu112-bd/midnight-journey-) |
 
 > Experience the complete ProofWork application through the live deployment. The demo video provides a walkthrough of the application's privacy model, confidential workplace governance workflow, wallet integration, anonymous feedback system, and Midnight architecture.
@@ -146,7 +146,7 @@ With ProofWork, employees and employers mathematically verify promises, salary i
 ## 📽️ Demo & Submission Walkthrough
 
 - **🌐 Live DApp URL:** [https://midnight-journey-nine.vercel.app/](https://midnight-journey-nine.vercel.app/)
-- **🎥 Loom Video Walkthrough:** [https://www.loom.com/share/5c1f182a925f4f92aaf9c38f37140e9e](https://www.loom.com/share/5c1f182a925f4f92aaf9c38f37140e9e)
+- **🎥 Loom Video Walkthrough:** [https://www.loom.com/share/aa6992f05ae8413e98bb83cd65c4d365](https://www.loom.com/share/aa6992f05ae8413e98bb83cd65c4d365)
 - **📦 GitHub Repository:** [https://github.com/Shantanu112-bd/midnight-journey-](https://github.com/Shantanu112-bd/midnight-journey-)
 
 ---
