@@ -6,8 +6,43 @@
 [![Midnight Network](https://img.shields.io/badge/Midnight-Preprod%20%2F%20Preview-7a60f3?style=for-the-badge&logo=cardano)](https://midnight.network)
 [![Compact Compiler](https://img.shields.io/badge/Compact-v0.5.1-673ce9?style=for-the-badge)](https://midnight.network)
 [![Lace Wallet](https://img.shields.io/badge/Wallet-Lace%20DApp%20Connector-562ad1?style=for-the-badge)](https://www.lace.io/)
-[![Build Status](https://img.shields.io/badge/Build-Passing-22c55e?style=for-the-badge)](https://github.com/Shantanu112-bd/midnight-journey-)
+[![Live App](https://img.shields.io/badge/Vercel-Live%20Application-000000?style=for-the-badge&logo=vercel)](https://midnight-journey-nine.vercel.app/)
+[![Demo Video](https://img.shields.io/badge/Loom-Demo%20Video-625df5?style=for-the-badge&logo=loom)](https://www.loom.com/share/5c1f182a925f4f92aaf9c38f37140e9e)
 [![Moonshots Level](https://img.shields.io/badge/Moonshots-Level%201%E2%80%933%20Complete-3b82f6?style=for-the-badge)](docs/evidence/LEVEL3_SUBMISSION_CHECKLIST.md)
+
+---
+
+# 🚀 Live Demo
+
+| Resource | Link |
+| :--- | :--- |
+| **🌐 Live Application** | [https://midnight-journey-nine.vercel.app/](https://midnight-journey-nine.vercel.app/) |
+| **🎥 Demo Video** | [https://www.loom.com/share/5c1f182a925f4f92aaf9c38f37140e9e](https://www.loom.com/share/5c1f182a925f4f92aaf9c38f37140e9e) |
+| **📦 GitHub Repository** | [https://github.com/Shantanu112-bd/midnight-journey-](https://github.com/Shantanu112-bd/midnight-journey-) |
+
+> Experience the complete ProofWork application through the live deployment. The demo video provides a walkthrough of the application's privacy model, confidential workplace governance workflow, wallet integration, anonymous feedback system, and Midnight architecture.
+
+---
+
+# 🟡 Deployment Status
+
+> **Status:** Pending (Official Midnight Preview Infrastructure Unavailable)
+>
+> During the July Moonshots submission period, the Midnight Preview RPC and deployment infrastructure was unavailable.
+> Following the official Moonshots mentor guidance, this repository is submitted as a **fully implemented, fully tested, and deployment-ready application**.
+> 
+> Current status:
+> - ✅ Compact contracts implemented
+> - ✅ Zero-Knowledge circuits compiled
+> - ✅ Managed bindings generated
+> - ✅ Smart contracts tested
+> - ✅ Frontend fully integrated
+> - ✅ Lace Wallet integration completed
+> - ✅ Midnight SDK integration completed
+> - ✅ CI/CD implemented
+> - ✅ Live frontend deployed on Vercel
+> - ✅ Demo video recorded
+> - 🟡 Contract deployment pending due to Preview RPC unavailability
 
 ---
 
@@ -98,15 +133,6 @@ With ProofWork, employees and employers mathematically verify promises, salary i
 
 ---
 
-## 🟡 Deployment Status
-
-> [!NOTE]
-> **Deployment Status:** 🟡 **Pending (Official Midnight Preview RPC Unavailable)**
->
-> Official Midnight Preview RPC and deployment services were unavailable during the Moonshots submission period. Following official mentor guidance, this repository is submitted as a fully wired, deployment-ready application. Zero address fabrication. Zero hash simulation.
-
----
-
 ## 🔒 Privacy Model Guarantee
 
 | Data Element | Observer on Explorer Can See | Observer Can NEVER Learn |
@@ -114,6 +140,14 @@ With ProofWork, employees and employers mathematically verify promises, salary i
 | **Promotion Agreement** | ✅ 256-bit Commitment Hash | ❌ Employee Salary, Name, or Target Date |
 | **HR Complaint** | ✅ Anonymous Tally Incremented | ❌ Whistleblower Identity or Complaint Body |
 | **Governance Poll** | ✅ Total Votes Cast (e.g. 42 Yes, 3 No) | ❌ Which Employee Voted Yes or No |
+
+---
+
+## 📽️ Demo & Submission Walkthrough
+
+- **🌐 Live DApp URL:** [https://midnight-journey-nine.vercel.app/](https://midnight-journey-nine.vercel.app/)
+- **🎥 Loom Video Walkthrough:** [https://www.loom.com/share/5c1f182a925f4f92aaf9c38f37140e9e](https://www.loom.com/share/5c1f182a925f4f92aaf9c38f37140e9e)
+- **📦 GitHub Repository:** [https://github.com/Shantanu112-bd/midnight-journey-](https://github.com/Shantanu112-bd/midnight-journey-)
 
 ---
 
