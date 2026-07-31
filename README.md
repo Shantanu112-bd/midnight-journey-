@@ -118,11 +118,11 @@ The table below explicitly defines the strict privacy boundaries enforced by Pro
 ## 🖼️ Application Screenshots & Demo
 
 ### 1. Workplace Agreement Hub & Lace Wallet Connection
-![Agreement Hub](docs/evidence/screenshots/agreement_hub.png)
+![Agreement Hub](docs/evidence/screenshots/agreement_hub.svg)
 *Figure 1: Connect Lace Wallet, view active workplace agreements, and verify ZK proof hashes.*
 
 ### 2. Observable ZK Privacy Inspector
-![Privacy Inspector](docs/evidence/screenshots/privacy_matrix.png)
+![Privacy Inspector](docs/evidence/screenshots/privacy_matrix.svg)
 *Figure 2: Real-time visual inspector demonstrating Public On-Chain State vs. Client-Side Private Witness.*
 
 ---

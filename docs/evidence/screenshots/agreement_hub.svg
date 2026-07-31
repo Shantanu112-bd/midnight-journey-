@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#090615"/>
+  <rect x="50" y="40" width="1100" height="80" rx="16" fill="#120e26" stroke="#ffffff" stroke-opacity="0.1"/>
+  <circle cx="100" cy="80" r="20" fill="#7a60f3"/>
+  <text x="135" y="88" fill="#ffffff" font-family="sans-serif" font-size="24" font-weight="bold">ProofWork Agreement Hub</text>
+  <rect x="900" y="60" width="220" height="40" rx="10" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e"/>
+  <text x="920" y="85" fill="#4ade80" font-family="sans-serif" font-size="14" font-weight="bold">Lace Connected (Preprod)</text>
+  
+  <!-- Agreement Card -->
+  <rect x="50" y="160" width="1100" height="420" rx="20" fill="#171230" stroke="#7a60f3" stroke-opacity="0.3"/>
+  <text x="90" y="210" fill="#ffffff" font-family="sans-serif" font-size="20" font-weight="bold">Senior Engineering Manager Promotion Commitment</text>
+  <rect x="90" y="230" width="480" height="300" rx="12" fill="#0b081e" stroke="#3b82f6" stroke-opacity="0.3"/>
+  <text x="110" y="265" fill="#60a5fa" font-family="sans-serif" font-size="14" font-weight="bold">PUBLIC LEDGER STATE (Disclosed)</text>
+  <text x="110" y="300" fill="#94a3b8" font-family="monospace" font-size="13">Public Hash: 0x8f4b23c91e10287a91632f01aa2904b7a110199e</text>
+  <text x="110" y="330" fill="#94a3b8" font-family="sans-serif" font-size="13">ZK Proof Status: Verified (zkSNARK-0x992fa1...e01)</text>
+
+  <rect x="610" y="230" width="510" height="300" rx="12" fill="#0b081e" stroke="#c084fc" stroke-opacity="0.3"/>
+  <text x="630" y="265" fill="#c084fc" font-family="sans-serif" font-size="14" font-weight="bold">CLIENT-SIDE WITNESS (Hidden Witness)</text>
+  <text x="630" y="300" fill="#cbd5e1" font-family="sans-serif" font-size="13">Parties: Alice Miller &amp; Enterprise Tech Corp HR</text>
+  <text x="630" y="330" fill="#cbd5e1" font-family="sans-serif" font-size="13">Terms: Promote to Principal Manager upon Q3 release</text>
+  <text x="630" y="360" fill="#4ade80" font-family="sans-serif" font-size="13" font-weight="bold">Salary Guarantee: +$25,000/yr ($165,000 Base)</text>
+</svg>
