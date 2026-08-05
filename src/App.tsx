@@ -105,7 +105,9 @@ export default function App() {
     setIsSubmittingZK(true);
 
     try {
-      const generatedHash = '0x' + Math.random().toString(16).substring(2, 42); // Private witness hash
+      const array = new Uint8Array(20);
+      window.crypto.getRandomValues(array);
+      const generatedHash = '0x' + Array.from(array, byte => byte.toString(16).padStart(2, '0')).join(''); // Private witness hash
       // Use the actual contract to create agreement
       const txId = await contract.callTx.createAgreement(newTitle, generatedHash);
 
@@ -144,7 +146,9 @@ export default function App() {
     if (!surveyInput[surveyId] || !contract) return;
     
     try {
-      const feedbackHash = '0x' + Math.random().toString(16).substring(2, 42);
+      const array = new Uint8Array(20);
+      window.crypto.getRandomValues(array);
+      const feedbackHash = '0x' + Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
       await contract.callTx.submitAnonymousFeedback(feedbackHash);
 
       setSurveys(surveys.map(s => {
@@ -187,12 +191,14 @@ export default function App() {
     if (!complaintText || !contract) return;
 
     try {
-      const hash = '0x' + Math.random().toString(16).substring(2, 42);
+      const array = new Uint8Array(20);
+      window.crypto.getRandomValues(array);
+      const hash = '0x' + Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
       const txId = await contract.callTx.fileComplaint(hash);
 
       setComplaintsList([
         {
-          id: `CMP-${Math.floor(100 + Math.random() * 900)}`,
+          id: `CMP-${crypto.randomUUID().substring(0, 8)}`,
           hash,
           date: new Date().toISOString().split('T')[0],
           status: `Filed in tx ${txId.substring(0, 8)}`
