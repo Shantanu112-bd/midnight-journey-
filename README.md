@@ -38,8 +38,9 @@
 > - ✅ Lace Wallet integration completed
 > - ✅ Midnight SDK & Proof Server integration completed
 > - ✅ Deployed on Midnight Preview Network
-> - 🟢 **Contract Address:** `2059d899ef9ca1578b81c3e6acb493aaa9031b9f0062855c1b576ff944ae33cc`
-> - 🟢 **Deployment Transaction Hash:** `6ab1c3495d43e2f5b89a38f74e929b2756a91d2938f323c21a48c9038d17f7b3` *(from logs)*
+> - 🟢 **Contract Address:** `a8ef4c035d0f4a830fadf2b6e622d9d57c5097566a5646d106381483ea0f19ee`
+> - 🟢 **Deployment Transaction Hash:** `35d2763eb01b38fd17e06b6b429fae31b8c8004afecb2835e5e78e2146b9424a`
+> - 🟢 **Block Height:** `288054`
 > - 🟢 **Deployment Date:** `2026-08-05`
 
 ---
