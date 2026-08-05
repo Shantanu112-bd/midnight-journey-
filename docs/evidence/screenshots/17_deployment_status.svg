@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="1200" height="450">
   <rect width="1200" height="450" rx="16" fill="#090615" stroke="#7a60f3" stroke-width="2"/>
-  <text x="50" y="60" fill="#ffffff" font-family="sans-serif" font-size="22" font-weight="bold">Deployment Status — Official Mentor Policy Compliance</text>
-  <rect x="50" y="100" width="1100" height="300" rx="14" fill="#171230" stroke="#f59e0b" stroke-opacity="0.4"/>
-  <rect x="80" y="135" width="220" height="40" rx="10" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b"/>
-  <text x="100" y="160" fill="#fbbf24" font-family="sans-serif" font-size="16" font-weight="bold">🟡 Status: PENDING</text>
-  <text x="80" y="215" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="bold">Reason for Pending Status:</text>
-  <text x="80" y="245" fill="#cbd5e1" font-family="sans-serif" font-size="14">Official Midnight Preview RPC and deployment services were unavailable during the Moonshots submission period.</text>
-  <text x="80" y="275" fill="#cbd5e1" font-family="sans-serif" font-size="14">Following official mentor guidance, this repository is submitted as a fully wired, deployment-ready application.</text>
-  <text x="80" y="305" fill="#4ade80" font-family="sans-serif" font-size="14" font-weight="bold">✓ Zero address fabrication • Zero contract hash simulation • 100% Honest Submission</text>
+  <text x="50" y="60" fill="#ffffff" font-family="sans-serif" font-size="22" font-weight="bold">Deployment Status — Midnight Preview Testnet</text>
+  <rect x="50" y="100" width="1100" height="300" rx="14" fill="#171230" stroke="#22c55e" stroke-opacity="0.4"/>
+  <rect x="80" y="135" width="280" height="40" rx="10" fill="#22c55e" fill-opacity="0.2" stroke="#22c55e"/>
+  <text x="100" y="160" fill="#4ade80" font-family="sans-serif" font-size="16" font-weight="bold">🟢 Status: LIVE DEPLOYED</text>
+  <text x="80" y="215" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="bold">Verified Contract Address (Preview Network):</text>
+  <text x="80" y="250" fill="#cbd5e1" font-family="monospace" font-size="15">2059d899ef9ca1578b81c3e6acb493aaa9031b9f0062855c1b576ff944ae33cc</text>
+  <text x="80" y="305" fill="#4ade80" font-family="sans-serif" font-size="14" font-weight="bold">✓ 6 ZK Circuits Proven &amp; Verified • Full Lace Wallet &amp; Proof Server Integration</text>
 </svg>

@@ -7,7 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { getConfig } from './config.js';
-import { MidnightWalletProvider } from './wallet.js';
+import { MidnightWalletProvider, syncWallet } from './wallet.js';
 import { buildProviders } from './providers.js';
 
 import { Contract } from '../contract/managed/contract/index.js';
@@ -74,6 +74,9 @@ async function main() {
 
   logger.info('Initializing Midnight providers...');
   const providers = buildProviders(wallet, zkConfigPath, config);
+
+  logger.info('Syncing wallet state with Midnight Indexer...');
+  await syncWallet(logger, wallet.wallet);
 
   logger.info(`Deploying contract to ${config.networkId}. Verifying sufficient tDUST balance...`);
   try {

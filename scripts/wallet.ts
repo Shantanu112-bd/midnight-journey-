@@ -84,7 +84,7 @@ export class MidnightWalletProvider implements MidnightProvider, WalletProvider 
   ): Promise<MidnightWalletProvider> {
     const dustOptions: DustWalletOptions = {
       ledgerParams: LedgerParameters.initialParameters(),
-      additionalFeeOverhead: 1_000n,
+      additionalFeeOverhead: 50n,
       feeBlocksMargin: 5,
     };
 

@@ -8,16 +8,6 @@ export type NetworkConfig = {
   faucet: string;
 };
 
-export const LOCAL_CONFIG: NetworkConfig = {
-  networkId: 'undeployed',
-  indexer: 'http://127.0.0.1:8088/api/v4/graphql',
-  indexerWS: 'ws://127.0.0.1:8088/api/v4/graphql/ws',
-  node: 'http://127.0.0.1:9944',
-  nodeWS: 'ws://127.0.0.1:9944',
-  proofServer: 'http://127.0.0.1:6300',
-  faucet: '',
-};
-
 export const PREVIEW_CONFIG: NetworkConfig = {
   networkId: 'preview',
   indexer: 'https://indexer.preview.midnight.network/api/v4/graphql',
@@ -28,23 +18,6 @@ export const PREVIEW_CONFIG: NetworkConfig = {
   faucet: 'https://faucet.preview.midnight.network/api/drips',
 };
 
-export const PREPROD_CONFIG: NetworkConfig = {
-  networkId: 'preprod',
-  indexer: 'https://indexer.preprod.midnight.network/api/v4/graphql',
-  indexerWS: 'wss://indexer.preprod.midnight.network/api/v4/graphql/ws',
-  node: 'https://rpc.preprod.midnight.network',
-  nodeWS: 'wss://rpc.preprod.midnight.network',
-  proofServer: process.env['MIDNIGHT_PROOF_SERVER'] ?? 'http://127.0.0.1:6300',
-  faucet: 'https://faucet.preprod.midnight.network/api/drips',
-};
-
 export function getConfig(): NetworkConfig {
-  const envNetwork = process.env['MIDNIGHT_NETWORK'];
-  
-  if (envNetwork === 'preview') return PREVIEW_CONFIG;
-  if (envNetwork === 'preprod') return PREPROD_CONFIG;
-  if (envNetwork === 'local') return LOCAL_CONFIG;
-
-  // Runtime Policy: Prefer Preview if specified/available, otherwise fallback to Preprod
   return PREVIEW_CONFIG;
 }

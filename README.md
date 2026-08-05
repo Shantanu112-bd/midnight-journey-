@@ -24,25 +24,21 @@
 
 ---
 
-# 🟡 Deployment Status
+# 🟢 Deployment Status
 
-> **Status:** Pending (Official Midnight Preview Infrastructure Unavailable)
+> **Status:** Live Deployed (Midnight Preview Testnet)
 >
-> During the July Moonshots submission period, the Midnight Preview RPC and deployment infrastructure was unavailable.
-> Following the official Moonshots mentor guidance, this repository is submitted as a **fully implemented, fully tested, and deployment-ready application**.
+> Smart contracts have been compiled, proven, and deployed on the **Midnight Preview Testnet**.
 > 
 > Current status:
-> - ✅ Compact contracts implemented
-> - ✅ Zero-Knowledge circuits compiled
+> - ✅ Compact contracts implemented & compiled (6 ZK circuits)
 > - ✅ Managed bindings generated
-> - ✅ Smart contracts tested
+> - ✅ Smart contracts tested (100% Passing)
 > - ✅ Frontend fully integrated
 > - ✅ Lace Wallet integration completed
-> - ✅ Midnight SDK integration completed
-> - ✅ CI/CD implemented
-> - ✅ Live frontend deployed on Vercel
-> - ✅ Demo video recorded
-> - 🟡 Contract deployment pending due to Preview RPC unavailability
+> - ✅ Midnight SDK & Proof Server integration completed
+> - ✅ Deployed on Midnight Preview Network
+> - 🟢 **Contract Address:** `2059d899ef9ca1578b81c3e6acb493aaa9031b9f0062855c1b576ff944ae33cc`
 
 ---
 

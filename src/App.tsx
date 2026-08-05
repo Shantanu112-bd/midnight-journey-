@@ -64,7 +64,7 @@ export default function App() {
   const [walletAddress, setWalletAddress] = useState<string>('');
   const [walletBalance, setWalletBalance] = useState<string>('24.5 tDUST');
   const [isConnecting, setIsConnecting] = useState<boolean>(false);
-  const [networkName, setNetworkName] = useState<string>('Midnight Preprod');
+  const [networkName, setNetworkName] = useState<string>('Midnight Preview Network');
 
   // Agreements State
   const [agreements, setAgreements] = useState<WorkplaceAgreement[]>([
@@ -168,9 +168,9 @@ export default function App() {
       try {
         const connected = await window.midnight.lace.isConnected();
         if (connected) {
-          const api = await window.midnight.lace.connect('preprod');
+          const api = await window.midnight.lace.connect('preview');
           const addrs = await api.getAddresses();
-          setWalletAddress(addrs.shield || 'mn_preprod_1q99...f201');
+          setWalletAddress(addrs.shield || 'mn_shield-addr_preview1q99...f201');
           setIsWalletConnected(true);
         }
       } catch (err) {
@@ -183,13 +183,13 @@ export default function App() {
     setIsConnecting(true);
     try {
       if (window.midnight?.lace) {
-        const api = await window.midnight.lace.connect('preprod');
+        const api = await window.midnight.lace.connect('preview');
         const addrs = await api.getAddresses();
         setWalletAddress(addrs.shield);
         setIsWalletConnected(true);
       } else {
         setTimeout(() => {
-          setWalletAddress('mn_preprod_1q89a201f99c30291e0189a712f99a');
+          setWalletAddress('mn_shield-addr_preview1q89a201f99c30291e0189a712f99a');
           setIsWalletConnected(true);
           setIsConnecting(false);
         }, 600);
