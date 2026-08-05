@@ -39,6 +39,8 @@
 > - ✅ Midnight SDK & Proof Server integration completed
 > - ✅ Deployed on Midnight Preview Network
 > - 🟢 **Contract Address:** `2059d899ef9ca1578b81c3e6acb493aaa9031b9f0062855c1b576ff944ae33cc`
+> - 🟢 **Deployment Transaction Hash:** `6ab1c3495d43e2f5b89a38f74e929b2756a91d2938f323c21a48c9038d17f7b3` *(from logs)*
+> - 🟢 **Deployment Date:** `2026-08-05`
 
 ---
 

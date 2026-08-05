@@ -18,7 +18,8 @@ import {
   BarChart3,
   Send
 } from 'lucide-react';
-import type { LaceWalletApi } from './types/midnight';
+// Removed LaceWalletApi import
+import { useMidnight } from './hooks/useMidnight';
 
 interface WorkplaceAgreement {
   id: string;
@@ -59,50 +60,10 @@ export default function App() {
   // Navigation
   const [activeTab, setActiveTab] = useState<'agreements' | 'privacy' | 'surveys' | 'complaints' | 'governance' | 'ai'>('agreements');
 
-  // Wallet State (Lace Integration)
-  const [isWalletConnected, setIsWalletConnected] = useState<boolean>(false);
-  const [walletAddress, setWalletAddress] = useState<string>('');
-  const [walletBalance, setWalletBalance] = useState<string>('24.5 tDUST');
-  const [isConnecting, setIsConnecting] = useState<boolean>(false);
-  const [networkName, setNetworkName] = useState<string>('Midnight Preview Network');
+  const { isConnecting, isConnected, walletAddress, contract, globalLedger, connect } = useMidnight();
+  const walletBalance = 'tDUST Ready'; // The SDK handles balance, we just show readiness
 
-  // Agreements State
-  const [agreements, setAgreements] = useState<WorkplaceAgreement[]>([
-    {
-      id: 'pw-ag-001',
-      title: 'Senior Engineering Manager Promotion Commitment',
-      category: 'Promotion',
-      publicHash: '0x8f4b23c91e10287a91632f01aa2904b7a110199e',
-      privateWitnessData: {
-        parties: 'Alice Miller (Lead Dev) & Enterprise Tech Corp HR',
-        terms: 'Promote to Principal Manager upon Q3 release delivery with $165k base salary',
-        salaryDiff: '+$25,000/yr',
-        effectiveDate: '2026-10-01'
-      },
-      zkProofStatus: 'Verified',
-      zkProofHash: 'zkSNARK-0x992fa1...e01',
-      createdAt: '2026-07-28',
-      disclosedTo: ['HR Director', 'Direct Manager']
-    },
-    {
-      id: 'pw-ag-002',
-      title: 'Confidential Salary Increment Guarantee',
-      category: 'Increment',
-      publicHash: '0x3a91bc74091e98b001a182049e9124a9192bc01f',
-      privateWitnessData: {
-        parties: 'Bob Vance & HR Department',
-        terms: 'Annual performance adjustment of 12% guaranteed post-audit',
-        salaryDiff: '+$14,400/yr',
-        effectiveDate: '2026-09-01'
-      },
-      zkProofStatus: 'Verified',
-      zkProofHash: 'zkSNARK-0x44ab01...f22',
-      createdAt: '2026-07-30',
-      disclosedTo: ['HR Operations']
-    }
-  ]);
-
-  // Modal State
+  const [agreements, setAgreements] = useState<WorkplaceAgreement[]>([]);
   const [showCreateModal, setShowCreateModal] = useState<boolean>(false);
   const [newTitle, setNewTitle] = useState('');
   const [newCategory, setNewCategory] = useState<'Promotion' | 'Increment' | 'Performance Review' | 'HR Complaint' | 'Bonus'>('Promotion');
@@ -111,111 +72,42 @@ export default function App() {
   const [newSalaryDiff, setNewSalaryDiff] = useState('');
   const [isSubmittingZK, setIsSubmittingZK] = useState(false);
 
-  // Level 3 Surveys State
   const [surveys, setSurveys] = useState<AnonymousSurvey[]>([
-    {
-      id: 'SRV-101',
-      title: 'Q3 Anonymous Management Feedback & Culture Pulse',
-      department: 'Engineering & Product',
-      responsesCount: 54,
-      myResponseSubmitted: false
-    },
-    {
-      id: 'SRV-102',
-      title: 'Confidential Workplace Psychological Safety Survey',
-      department: 'All Company',
-      responsesCount: 128,
-      myResponseSubmitted: false
-    }
+    { id: 'SRV-101', title: 'Q3 Anonymous Management Feedback & Culture Pulse', department: 'Engineering & Product', responsesCount: 0, myResponseSubmitted: false }
   ]);
   const [surveyInput, setSurveyInput] = useState<{ [key: string]: string }>({});
 
-  // Complaints State
   const [complaintText, setComplaintText] = useState('');
-  const [complaintsList, setComplaintsList] = useState<Array<{ id: string; hash: string; date: string; status: string }>>([
-    { id: 'CMP-901', hash: '0x77c2901a...ff2', date: '2026-07-29', status: 'Under Private HR Review' }
-  ]);
+  const [complaintsList, setComplaintsList] = useState<Array<{ id: string; hash: string; date: string; status: string }>>([]);
 
-  // Governance State
   const [polls, setPolls] = useState<GovernancePoll[]>([
-    {
-      id: 'POL-01',
-      title: 'Confidential Remote Work Policy Extension 2026',
-      description: 'Vote on authorizing 100% remote flexibility without disclosing individual employee votes.',
-      votesYes: 42,
-      votesNo: 3,
-      myVote: null,
-      status: 'Active'
-    },
-    {
-      id: 'POL-02',
-      title: 'Confidential Team Bonus Allocation Structure',
-      description: 'Approve equal profit-share pool distribution for Q3 engineering achievements.',
-      votesYes: 38,
-      votesNo: 7,
-      myVote: null,
-      status: 'Active'
-    }
+    { id: 'POL-01', title: 'Confidential Remote Work Policy Extension 2026', description: 'Vote on authorizing 100% remote flexibility without disclosing individual employee votes.', votesYes: 0, votesNo: 0, myVote: null, status: 'Active' }
   ]);
 
-  // Auto-connect to Lace Wallet if available
+  // Auto-connect on load if Lace is available
   useEffect(() => {
-    checkLaceWalletConnection();
-  }, []);
-
-  const checkLaceWalletConnection = async () => {
     if (window.midnight?.lace) {
-      try {
-        const connected = await window.midnight.lace.isConnected();
-        if (connected) {
-          const api = await window.midnight.lace.connect('preview');
-          const addrs = await api.getAddresses();
-          setWalletAddress(addrs.shield || 'mn_shield-addr_preview1q99...f201');
-          setIsWalletConnected(true);
-        }
-      } catch (err) {
-        console.log('Lace wallet connection check:', err);
-      }
+      connect().catch(console.error);
     }
-  };
+  }, [connect]);
 
-  const handleConnectWallet = async () => {
-    setIsConnecting(true);
-    try {
-      if (window.midnight?.lace) {
-        const api = await window.midnight.lace.connect('preview');
-        const addrs = await api.getAddresses();
-        setWalletAddress(addrs.shield);
-        setIsWalletConnected(true);
-      } else {
-        setTimeout(() => {
-          setWalletAddress('mn_shield-addr_preview1q89a201f99c30291e0189a712f99a');
-          setIsWalletConnected(true);
-          setIsConnecting(false);
-        }, 600);
-        return;
-      }
-    } catch (err) {
-      console.error('Wallet error:', err);
-    } finally {
-      setIsConnecting(false);
-    }
+  const handleConnectWallet = () => {
+    connect().catch(console.error);
   };
 
   const handleDisconnectWallet = () => {
-    setIsWalletConnected(false);
-    setWalletAddress('');
+    window.location.reload(); // Simple way to clear state for DApp connector
   };
 
-  const handleCreateAgreement = (e: React.FormEvent) => {
+  const handleCreateAgreement = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newTitle || !newTerms) return;
-
+    if (!newTitle || !newTerms || !contract) return;
     setIsSubmittingZK(true);
 
-    setTimeout(() => {
-      const generatedHash = '0x' + Math.random().toString(16).substring(2, 42);
-      const proofHash = 'zkSNARK-0x' + Math.random().toString(16).substring(2, 14) + '...proof';
+    try {
+      const generatedHash = '0x' + Math.random().toString(16).substring(2, 42); // Private witness hash
+      // Use the actual contract to create agreement
+      const txId = await contract.callTx.createAgreement(newTitle, generatedHash);
 
       const newAg: WorkplaceAgreement = {
         id: `pw-ag-00${agreements.length + 1}`,
@@ -229,60 +121,89 @@ export default function App() {
           effectiveDate: new Date().toISOString().split('T')[0]
         },
         zkProofStatus: 'Verified',
-        zkProofHash: proofHash,
+        zkProofHash: `zk-tx-${txId.substring(0, 8)}`,
         createdAt: new Date().toISOString().split('T')[0],
         disclosedTo: ['HR Manager']
       };
 
       setAgreements([newAg, ...agreements]);
-      setIsSubmittingZK(false);
       setShowCreateModal(false);
       setNewTitle('');
       setNewParties('');
       setNewTerms('');
       setNewSalaryDiff('');
-    }, 1000);
+    } catch (error) {
+      console.error('Failed to create agreement:', error);
+      alert('Transaction failed: ' + (error as Error).message);
+    } finally {
+      setIsSubmittingZK(false);
+    }
   };
 
-  const handleSubmitSurvey = (surveyId: string) => {
-    if (!surveyInput[surveyId]) return;
-    setSurveys(surveys.map(s => {
-      if (s.id === surveyId) {
-        return { ...s, responsesCount: s.responsesCount + 1, myResponseSubmitted: true };
-      }
-      return s;
-    }));
+  const handleSubmitSurvey = async (surveyId: string) => {
+    if (!surveyInput[surveyId] || !contract) return;
+    
+    try {
+      const feedbackHash = '0x' + Math.random().toString(16).substring(2, 42);
+      await contract.callTx.submitAnonymousFeedback(feedbackHash);
+
+      setSurveys(surveys.map(s => {
+        if (s.id === surveyId) {
+          return { ...s, responsesCount: s.responsesCount + 1, myResponseSubmitted: true };
+        }
+        return s;
+      }));
+    } catch (error) {
+      console.error('Failed to submit survey:', error);
+      alert('Transaction failed: ' + (error as Error).message);
+    }
   };
 
-  const handleCastVote = (pollId: string, choice: 'YES' | 'NO') => {
-    setPolls(polls.map(p => {
-      if (p.id === pollId) {
-        return {
-          ...p,
-          votesYes: choice === 'YES' ? p.votesYes + 1 : p.votesYes,
-          votesNo: choice === 'NO' ? p.votesNo + 1 : p.votesNo,
-          myVote: choice
-        };
-      }
-      return p;
-    }));
+  const handleCastVote = async (pollId: string, choice: 'YES' | 'NO') => {
+    if (!contract) return;
+
+    try {
+      await contract.callTx.castPrivateVote(pollId, choice === 'YES' ? 1n : 0n);
+
+      setPolls(polls.map(p => {
+        if (p.id === pollId) {
+          return {
+            ...p,
+            votesYes: choice === 'YES' ? p.votesYes + 1 : p.votesYes,
+            votesNo: choice === 'NO' ? p.votesNo + 1 : p.votesNo,
+            myVote: choice
+          };
+        }
+        return p;
+      }));
+    } catch (error) {
+      console.error('Failed to cast vote:', error);
+      alert('Transaction failed: ' + (error as Error).message);
+    }
   };
 
-  const handleFileComplaint = (e: React.FormEvent) => {
+  const handleFileComplaint = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!complaintText) return;
+    if (!complaintText || !contract) return;
 
-    const hash = '0x' + Math.random().toString(16).substring(2, 18) + '...enc';
-    setComplaintsList([
-      {
-        id: `CMP-${Math.floor(100 + Math.random() * 900)}`,
-        hash,
-        date: new Date().toISOString().split('T')[0],
-        status: 'Encrypted & Filed via `fileComplaint` ZK Circuit'
-      },
-      ...complaintsList
-    ]);
-    setComplaintText('');
+    try {
+      const hash = '0x' + Math.random().toString(16).substring(2, 42);
+      const txId = await contract.callTx.fileComplaint(hash);
+
+      setComplaintsList([
+        {
+          id: `CMP-${Math.floor(100 + Math.random() * 900)}`,
+          hash,
+          date: new Date().toISOString().split('T')[0],
+          status: `Filed in tx ${txId.substring(0, 8)}`
+        },
+        ...complaintsList
+      ]);
+      setComplaintText('');
+    } catch (error) {
+      console.error('Failed to file complaint:', error);
+      alert('Transaction failed: ' + (error as Error).message);
+    }
   };
 
   return (
@@ -309,12 +230,12 @@ export default function App() {
 
           {/* Right Wallet Status */}
           <div className="flex items-center space-x-4">
-            <div className="hidden md:flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-300">
-              <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-              <span>Preview Deployment: PENDING</span>
+            <div className="hidden md:flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-300">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Preview Deployment: ACTIVE</span>
             </div>
 
-            {isWalletConnected ? (
+            {isConnected ? (
               <div className="flex items-center space-x-3">
                 <div className="glass-panel px-3.5 py-1.5 rounded-xl border border-purple-500/30 flex items-center space-x-3 text-xs">
                   <div className="flex flex-col text-right font-mono">
@@ -407,7 +328,7 @@ export default function App() {
                   <Award className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-white">{agreements.length}</div>
+                  <div className="text-2xl font-bold text-white">{globalLedger?.agreementCount !== undefined ? globalLedger.agreementCount : agreements.length}</div>
                   <div className="text-xs text-slate-400">Active ZK Agreements</div>
                 </div>
               </div>
